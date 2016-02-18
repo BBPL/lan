@@ -22,7 +22,7 @@
 				$uid = $q['user_id'];
 
 				$text .= "<div>" . $navn ;
-				$text .= "<a href='functions/addToTeam.php?uid=".$uid."'>Tilføj</a></div>";
+				$text .= "<a href='functions/addToTeam.php?uid=".$uid."&tid=".$_SESSION['teamid']."'>Tilføj</a></div>";
 
 			}
 		}

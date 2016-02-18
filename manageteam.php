@@ -13,7 +13,15 @@
 	include_once 'functions/functions.php';
 	include_once 'temps/header.php';
 	include_once 'search.php';
+
+	$_SESSION['teamid'] = $_GET['teamid'];
+	//if(!is_int($_GET['teamid'])){header('location: rediger');}
+	$sql = "SELECT * FROM teams WHERE team_id = '" . $_GET['teamid'] . "'";
+	$get_team = mysqli_query($connect,$sql);
+	$rows = mysqli_num_rows($get_team);
 ?>
+<?php if ($rows == 1): ?>
+
 
 <div class="body">
 	<div class="container">
@@ -21,13 +29,19 @@
 			<?php if(!loggedin()){
 				header('location: /lan');
 			} else {
-				$sql = "SELECT captain_id FROM teams WHERE captain_id = " . $_SESSION['userID'];
+				$team_id = $_GET['teamid'];
+				$sql = "SELECT captain_id FROM teams WHERE (captain_id = ". $_SESSION['userID'] .") AND (team_id = ".$team_id.")";
 				$get_capid = mysqli_query($connect,$sql);
 				$rows = mysqli_num_rows($get_capid);
 
 				if($rows == 0){
 					header('location: /lan');
 				} else {
+					$sql = "SELECT spillere FROM teams WHERE team_id = ".$team_id;
+					$get_info = mysqli_query($connect,$sql);
+					$spillere = mysqli_fetch_assoc($get_info)['spillere'];
+
+					echo $spillere . "/5"
 					?>
 					<table>
 						<tr>
@@ -37,12 +51,20 @@
 						</tr>
 						<?php include_once 'functions/manageteam.php'; ?>
 					</table>
-					<form action="manageteam.php" name="searchform" method="post">
-							<input type="text" name="search" placholder="Search" autocomplete="off" onkeyup="searchq();"/>
-					</form>
-					<div id="results">
+					<?php
 
-					</div>
+
+					if ($spillere < 5): ?>
+						<form action="manageteam.php?tid=<?php $tid ?>" name="searchform" method="post">
+								<input type="text" name="search" placholder="Search" autocomplete="off" onkeyup="searchq();"/>
+						</form>
+						<div id="results"></div>
+					<?php else:?>
+
+						You have a full team
+
+					<?php endif; ?>
+
 
 
 					<?php
@@ -53,7 +75,7 @@
 		</div>
 	</div>
 </div>
-
+<?php endif; ?>
 
 
 </body>

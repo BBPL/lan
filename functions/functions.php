@@ -1,4 +1,4 @@
-<?php	
+<?php
 	include_once 'connect.php';
 
 		session_start();
@@ -12,15 +12,15 @@
 				echo 'falsie';
 			}
 		}
-		
+
 		if (loggedin()) { //Hvis kunden er logget ind
 			$my_id = $_SESSION['userID'];
 			$user_query = mysqli_query($connect, "SELECT navn FROM users WHERE user_id ='$my_id' ");
 			$run_userInfo = mysqli_fetch_assoc($user_query);
-			
+
 			$navn = $run_userInfo['navn'];
-			
-				
+
+
 		}
 
 		function admin_loggedin(){
@@ -36,7 +36,7 @@
 
 			$sql = "SELECT * FROM teams WHERE tournament_id = " . $_GET['id'];
 			$get_allteams = mysqli_query($connect,$sql);
-			?> 
+			?>
 
 			<?php
 			while($q = mysqli_fetch_assoc($get_allteams)){
@@ -55,7 +55,7 @@
 						<?php echo $team_tag;  ?>
 					</div>
 				</div>
-				
+
 
 
 				<?php
@@ -71,22 +71,22 @@
 						INNER JOIN
 						  users ON users.user_id = players.user_id
 						WHERE
-						  team_id = " . $team_id; 
-  				
+						  team_id = " . $team_id;
+
 				$get_teammembers = mysqli_query($connect,$sql);
 				while($r = mysqli_fetch_assoc($get_teammembers)){
 					$player_navn = $r['navn'];
 					$player_table = $r['bordnr'];
 
 				}
-				
+
 			}
 			?>
 
 
 			<?php
 
-			
+
 
 		}
 
@@ -106,11 +106,11 @@
 				<?php
 			}
 
-			 
+
 		}
 
 		function invite(){
-			
+
 		}
 
 		function check_user_avai(){
@@ -129,9 +129,10 @@
 			} else {
 				return false;
 			}
-			
- 
+
+
 		}
-		
+
+
 
 ?>
