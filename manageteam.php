@@ -4,13 +4,15 @@
 	<meta charset="utf-8">
 	<title>HCØ LAN</title>
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="scripts/search.js"></script>
 </head>
 <body>
 <?php
 	include_once 'functions/connect.php';
 	include_once 'functions/functions.php';
 	include_once 'temps/header.php';
+	include_once 'search.php';
 ?>
 
 <div class="body">
@@ -35,11 +37,16 @@
 						</tr>
 						<?php include_once 'functions/manageteam.php'; ?>
 					</table>
-					<form>
-						<input type="text" size="30" onkeyup="showResult(this.value)">
-						<div id="livesearch"></div>
+					<form action="manageteam.php" name="searchform" method="post">
+							<input type="text" name="search" placholder="Search" autocomplete="off" onkeyup="searchq();"/>
 					</form>
+					<div id="results">
+
+					</div>
+
+
 					<?php
+
 				}
 			}
 			?>
@@ -47,7 +54,7 @@
 	</div>
 </div>
 
-<script src="scripts/search.js" />
+
 
 </body>
 </html>
