@@ -1,0 +1,15 @@
+<Files .htaccess>
+order allow,deny
+allow from all
+</Files>
+
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^/?$ index.php [NC,L]
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^turneringer/?$ tournaments.php [NC,L]
+RewriteRule ^csgo/?$ tournament.php?id=1 [NC,L]
+RewriteRule ^lol/?$ tournament.php?id=2 [NC,L]
+RewriteRule ^rediger/?$ manage.php [NC,L]
+RewriteRule ^registrering/?$ register.php [NC,L]
