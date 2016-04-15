@@ -14,7 +14,7 @@
 		?>
 		<tr>
 			<td><?php echo $tourn_name?></td>
-			<td><?php echo $players?></td>
+			<td><?php echo $tournament_id?></td>
 			<td>
 				<?php
 				if($status == '1'){

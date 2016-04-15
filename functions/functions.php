@@ -37,25 +37,31 @@
 			$sql = "SELECT * FROM teams WHERE tournament_id = " . $_GET['id'];
 			$get_allteams = mysqli_query($connect,$sql);
 			?>
-
+			<table>
+				<tr>
+					<th>Holdets	Navn</th>
+					<th>Holdets Tag</th>
+					<th>Antal spillere</th>
+				</tr>
+					
 			<?php
 			while($q = mysqli_fetch_assoc($get_allteams)){
 				$team_id = $q['team_id'];
 				$team_name = $q['navn'];
 				$team_tag = $q['tag'];
+				$team_spillere = $q['spillere'];
+				$team_captain = $q['captain_id'];
 
 				?>
 
-				<div>
-					<div>
-						<?php echo $team_name; ?>
-					</div>
-
-					<div>
-						<?php echo $team_tag;  ?>
-					</div>
-				</div>
-
+				
+				<tr>
+					<td><?php echo $team_name; ?></td>
+					<td><?php echo $team_tag;  ?></td>
+					<td><?php echo $team_spillere;  ?>/5</td>
+				</tr>
+						
+			
 
 
 				<?php
@@ -82,7 +88,7 @@
 
 			}
 			?>
-
+			</table>
 
 			<?php
 

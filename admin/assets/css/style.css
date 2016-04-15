@@ -6,7 +6,7 @@
 }
 
 body{
-	background-image: url(../assets/bg.png);
+	background-image: url(../img/bg.png);
 	color: white;
 	font-weight: 400;
  	font-size: 1em;
@@ -15,6 +15,11 @@ body{
 
 a{
 	text-decoration: none;
+	color: white;
+}
+
+a:hover{
+	color:#D24D57 ;
 }
 
 h1{
@@ -43,11 +48,6 @@ h1{
 	text-align: center;
 }
 
-.container{
-	display: inline-block;
-    margin: 0 auto;
-}
-
 .container .login, .container .register{
 	text-align: center;	
 	width: 100%;
@@ -61,7 +61,7 @@ h1{
 }
 
 
-.login input[type=text], .login input[type=password], #register input[type=text], #register input[type=password], .create-teams input[type=text], .create-teams input[type=password]{
+input[type=text], input[type=password], #register input[type=text], #register input[type=password], .create-teams input[type=text], .create-teams input[type=password]{
 	margin-left: -5px;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -75,6 +75,7 @@ h1{
 	color: white;
 	height: 22px;
 	background-color: rgba(255, 255, 255, 0.2);
+	width: 40%;
 }
 
 input[type=submit]:hover{
@@ -132,21 +133,26 @@ th {
     color: white;
 }
 
-.teams, .manage-teams, .create-teams{
-	width: 60%;
+.users-box, .container{
+	width:90%;
+	margin: 0 auto;
+
+}
+
+.edituser{
+	width:70%;
 	margin: 0 auto;
 }
 
-.link-manage, .link-remove{
-	color:white;
+.e_info{
+	width: 10%;
 }
 
-.link-manage:hover, .link-remove:hover{
-	color:#D24D57;
-}
-
-.create{
-	top: 50%;
-	width: 60%;
+.login-box{
+	width: 50%;
 	margin: 0 auto;
+}
+
+.login-box input{
+	width: 100%;
 }

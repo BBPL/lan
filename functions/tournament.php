@@ -16,21 +16,26 @@
 				<h1><?php echo $t_navn;?></h1>
 			<?php
 
-			display_teams();
-
 			if (loggedin()) {
 				if(check_user_avai() == true){
 					?><a href="rediger" class="index-button btn-one">Rediger dit hold</a>
 					<?php
 				} else {
 					?>
-					<a href="createTeam.php?tid=<?php echo $t_id; ?>">Opret et hold</a>
+					<a href="createTeam.php?tid=<?php echo $t_id; ?> "class="index-button btn-one">Opret et hold</a>
 					<?php
 
 				}
 				
 			}
-
+			?>
+			<div class="teams">
+				<?php
+					display_teams();
+				?>
+			</div>
+			
+			<?php
 			}
 		}
 	} else {

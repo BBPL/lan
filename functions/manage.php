@@ -12,7 +12,9 @@
 		<tr>
 			<th>Navn</th>
 			<th>Tag</th>
+			<th>Spillere</th>
 			<th>Manage</th>
+			<th>Fjern</th>
 		</tr>
 <?php
 		$sql = "SELECT * FROM teams WHERE captain_id = " . $capid;
@@ -21,13 +23,16 @@
 		while($q = mysqli_fetch_assoc($get_teaminfo)){
 			$team_name = $q['navn'];
 			$team_tag = $q['tag'];
-			$team_id = $q['team_id']
+			$team_id = $q['team_id'];
+			$team_spillere = $q['spillere'];
 
 			?>
 				<tr>
-					<th><?php echo $team_name;?></th>
-					<th><?php echo $team_tag?></th>
-					<th><a href="manageteam.php?teamid=<?php echo $team_id; ?>">Manage</a></th>
+					<td><?php echo $team_name;?></td>
+					<td><?php echo $team_tag?></td>
+					<td><?php echo $team_spillere;?>/5</td>
+					<td><a href="manageteam.php?teamid=<?php echo $team_id; ?>" class="link-manage">Redigér</a></td>
+					<td><a href="functions/removeteam.php?teamid=<?php echo $team_id; ?>" class="link-remove">Fjern</a></td>
 				</tr>
 			<?php
 					

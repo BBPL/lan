@@ -15,3 +15,34 @@ window.onclick = function(event) {
     }
   }
 }
+
+$(document).ready(function(){
+	$("#users_btn").click(function(){
+		$("#users").show();
+		$("#teams").hide();
+		$("#tournaments").hide();
+		$("#tickets").hide();
+	});
+
+	$("#teams_btn").click(function(){
+		$("#users").hide();
+		$("#teams").show();
+		$("#tournaments").hide();
+		$("#tickets").hide();
+	});
+
+	$("#tournaments_btn").click(function(){
+		$("#users").hide();
+		$("#teams").hide();
+		$("#tournaments").show();
+		$("#tickets").hide();
+	});
+
+	$("#tickets_btn").click(function(){
+		$("#users").hide();
+		$("#teams").hide();
+		$("#tournaments").hide();
+		$("#tickets").show();
+	});
+
+});

@@ -14,7 +14,7 @@
 ?>
 
 <div class="body">
-	<div class="container">
+	<div class="manage-teams">
 		<div class="rediger">
 			<?php
 				if(!loggedin()){

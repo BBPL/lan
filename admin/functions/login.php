@@ -29,7 +29,7 @@
 			}
 
 		} else {
-			echo "<p>Mail or password is incorrect</p>";
+			header('location: ../../index.php');
 		}
 
 

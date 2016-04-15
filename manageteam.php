@@ -24,7 +24,7 @@
 
 
 <div class="body">
-	<div class="container">
+	<div class="container manage-teams">
 		<div class="redigerteam">
 			<?php if(!loggedin()){
 				header('location: /lan');

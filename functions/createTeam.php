@@ -18,17 +18,18 @@
 		$check_t = mysqli_query($connect,$sql);
 		$rows = mysqli_num_rows($check_t);
 
-		if($rows >= 1){
-			echo "Team or tag is used";
-		} else {
-			$sql = "SELECT captain_id FROM teams WHERE (tournament_id = ' . $t_id . ') AND ( cpatain_id = " . $user_id .")";
+			$sql = "SELECT captain_id FROM teams WHERE (tournament_id = " . $t_id . ") AND ( cpatain_id = " . $user_id .")";
 			$check_cid = mysqli_query($connect,$sql);
 			$num_cid = mysqli_num_rows($check_cid);
 
 			if($num_cid >= 1){
 				echo "You already have one team in this tournament";
 			} else {
-				$sql = "INSERT INTO teams VALUES ('$team_name','$team_tag','$user_id','$t_id',' ') ";
+				
+			}
+
+
+			$sql = "INSERT INTO teams VALUES ('$team_name','$team_tag','$user_id','$t_id',' ',"1") ";
 				mysqli_query($connect,$sql);
 
 				$sql = "SELECT team_id FROM teams WHERE captain_id = " . $user_id;
@@ -38,13 +39,8 @@
 				$sql = "INSERT INTO players VALUES ('$team_id', '$user_id', ' ')";
 				mysqli_query($connect,$sql);
 				header('location: ../tournament.php?id=' . $t_id);
-			}
 
-
-			
-
-		}
-
+		
 
 		
 
